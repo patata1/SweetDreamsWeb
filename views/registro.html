@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../img/favicon.png"  type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="../style/style.css"/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+        
+    </head>
+    <body>
+     <img id="fondo" src="../img/fontWeb.png" alt="background image" />
+    <a href="../index.html">  
+          <div id="atras">
+                <div class="button btn2">Atrás</div>
+              </button>
+          </div> 
+        </a>
+    <center>
+        <div id="archivo" class="foto">
+        <img src="../img/foto_pre.png" class="imgRegis" id="imgAvatar">
+            <input id="foto" type="file" name="foto">
+        </div>
+    </center> 
+        <div class="login">
+      <div class="login-triangle"></div>
+      
+      <h2 class="login-header">Registro</h2>
+
+          <form class="login-container">
+            <p><input id="alias" type="text" placeholder="alias" required="required"></p>
+            <p><input id="email" type="email" placeholder="e-mail" required="required"></p>
+            <p><input id="contraseña" type="password" placeholder="contraseña" required="required"></p>
+            <p><input id="repContraseña" type="password" placeholder="repetir contraseña" required="required"></p>
+            <p class="termyCond"><input type="checkbox" required="required">&nbsp&nbsp&nbsp He leído y acepto los términos y condiciones de uso.</p>
+            <p><input type="submit" value="Registrarte" id="btnEntrar"></p>
+          </form>
+      </div> 
+      <script type="text/javascript">
+      
+      ////////////////FUNCION PARA CAMBIAR LA IMAGEN Y ANIMARLA//////////////////////
+/*
+          $('#foto').change( function(event) {
+            var tmppath = URL.createObjectURL(event.target.files[0]);
+            console.log (tmppath);
+            var url = $("#imgAvatar").attr('src');
+            $("#imgAvatar").fadeToggle("slow");
+            // sleep(200);
+            // $("#imgAvatar").attr('src',URL.createObjectURL(event.target.files[0]));
+            // $("#imgAvatar").fadeToggle("slow");
+            // sleep(1000);
+            $("#imgAvatar").fadeToggle("slow").attr('src',URL.createObjectURL(event.target.files[0]));
+            });*/
+
+          $("#foto").change(function(e) {
+                e.preventDefault();
+                $imgURL = URL.createObjectURL(event.target.files[0]);
+                $(".imgRegis")
+                    .fadeOut(400, function() {
+                        $(".imgRegis").attr('src',$imgURL);
+                    })
+                    .fadeIn(400);
+            });
+
+        ////////////////FUNCION SLEEP///////////////////
+
+          // function sleep(milliseconds) {
+          //     var start = new Date().getTime();
+          //     for (var i = 0; i < 1e7; i++) {
+          //       if ((new Date().getTime() - start) > milliseconds){
+          //         break;
+          //       }
+          //     }
+          //   }
+
+      </script>
+    </body>
+</html>
